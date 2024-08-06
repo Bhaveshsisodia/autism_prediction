@@ -1,0 +1,34 @@
+columns:
+  - ID: int
+  - A1_Score: int
+  - A2_Score: int
+  - A3_Score: int
+  - A4_Score: int
+  - A5_Score: int
+  - A6_Score: int
+  - A7_Score: int
+  - A8_Score: int
+  - A9_Score: int
+  - A10_Score: int
+  - age: float
+  - gender: category
+  - ethnicity: category
+  - jaundice: category
+  - austim: category
+  - contry_of_res: category
+  - used_app_before: category
+  - result: float
+  - age_desc: category
+  - relation: category
+  - Class/ASD: int
+
+
+numerical_columns:
+  - age
+  - result
+
+
+
+drop_columns:
+  - age_desc
+  - ID
