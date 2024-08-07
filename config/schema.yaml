@@ -1,5 +1,4 @@
 columns:
-  - ID: int
   - A1_Score: int
   - A2_Score: int
   - A3_Score: int
@@ -18,7 +17,6 @@ columns:
   - contry_of_res: category
   - used_app_before: category
   - result: float
-  - age_desc: category
   - relation: category
   - Class/ASD: int
 
