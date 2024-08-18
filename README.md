@@ -1,8 +1,15 @@
 # Autism Prediction End-to-End Project
 Autism is a neurological disorder that affects a person’s ability to interact with others, make eye contact with others, learn capacity, and other behavioral and social capabilities of a person.
 But there is no ascertain way to tell whether a person has Autism or not because there are no such diagnostics methods available to diagnose this disorder. so with help of machine learning we will predict the disorder or not.
+## Home
+![alt text](https://github.com/Bhaveshsisodia/autism_prediction/blob/10e9723f7c6df29e115f06c7812fa7c3faa729b4/autism_django/web_page_ss/Screenshot%202024-08-18%20173424.png)
 
-web page
+## Prediction
+![alt text](https://github.com/Bhaveshsisodia/autism_prediction/blob/10e9723f7c6df29e115f06c7812fa7c3faa729b4/autism_django/web_page_ss/prediction.png)
+
+## Training
+![alt text](https://github.com/Bhaveshsisodia/autism_prediction/blob/10e9723f7c6df29e115f06c7812fa7c3faa729b4/autism_django/web_page_ss/training.png)
+
 ## Overview
 This project is an end-to-end pipeline for predicting autism spectrum disorder (ASD) using machine learning techniques. The pipeline encompasses multiple stages, including data ingestion, data validation, data transformation, model training, model evaluation, and model deployment. Additionally, the project includes hyperparameter tuning to optimize model performance. The final model is deployed to a Django-based web application, enabling users to perform predictions and retrain the model with new data.
 
