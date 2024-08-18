@@ -2,7 +2,9 @@ import yaml
 from Autism.exception import AutismException
 import sys, os , dill
 import numpy as np
+import pandas as pd
 from Autism.logger import logging
+from Autism.constant.training_pipeline import *
 
 def read_yaml_file(file_path:str) -> dict:
     try:
@@ -19,7 +21,7 @@ def write_yaml_file(file_path: str, content:object , replace:bool=False) -> None
             os.remove(file_path)
         os.makedirs(os.path.dirname(file_path),exist_ok=True)
         with open(file_path, "w") as file:
-            yaml.dump(content, file)
+                yaml.dump(content, file)
     except Exception as e:
         raise AutismException(e, sys) from e
 
@@ -69,6 +71,34 @@ def load_object(file_path:str) -> object:
         with open(file_path , "rb") as file_obj:
             obj=dill.load(file_obj)
             return obj
+
+    except Exception as e:
+        raise AutismException(e, sys) from e
+
+def load_data(file_path: str, schema_file_path: str) -> pd.DataFrame:
+    try:
+        dataset_schema = read_yaml_file(schema_file_path)
+
+        data = dataset_schema[DATASET_SCHEMA_COLUMNS_KEYS]
+
+
+        schema = {list(d.keys())[0]: list(d.values())[0] for d in data}
+        print(schema)
+
+        dataframe = pd.read_csv(file_path)
+
+        error_message = ""
+
+        for column in dataframe.columns:
+            if column in list(schema.keys()):
+                dataframe[column].astype(schema[column])
+            else:
+                error_message = f"{error_message} \column: [{column}] is not in the schmea."
+
+        if len(error_message) > 0:
+            raise Exception(error_message)
+
+        return dataframe
 
     except Exception as e:
         raise AutismException(e, sys) from e

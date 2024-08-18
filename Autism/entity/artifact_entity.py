@@ -43,6 +43,18 @@ class ModelTrainerArtifact:
 
 
 
+@dataclass
+class ModelEvaluationArtifact:
+    is_model_accepted: bool
+    message: str
+    evaluated_model_path : str
 
+
+
+@dataclass
+class ModelPusherArtifact:
+    is_model_pusher:str
+    saved_model_path:str
+    model_file_path:str
 
 

@@ -46,7 +46,7 @@ class ModelTrainer:
     def __init__(self,model_trainer_config:ModelTrainerConfig,
                  data_transformation_artifact: DataTransformationArtifact):
         try:
-            logging.info(f"{'>>' * 30}Model trainer log started.{'<<' * 30} ")
+            logging.info(f"\n{'>>' * 30}Model trainer log started.{'<<' * 30} ")
             self.model_trainer_config= model_trainer_config
             self.data_transformation_artifact = data_transformation_artifact
         except Exception as e:
@@ -114,7 +114,15 @@ class ModelTrainer:
                 file_path=self.data_transformation_artifact.transformed_object_file_path)
 
             model_object = metric_info.model_object
+            model_name=metric_info.model_name +".pkl"
+
             trained_model_file_path = self.model_trainer_config.trained_model_file_path
+
+            dir_name = os.path.dirname(trained_model_file_path)
+
+# Join the directory name with the new base name
+            trained_model_file_path = os.path.join(dir_name, model_name)
+            print(trained_model_file_path)
 
 
             autism_model = AutismEstimatorModel(
@@ -136,6 +144,7 @@ class ModelTrainer:
                                                                     )
 
             logging.info(f"Model Trainer Artifact: {model_trainer_artifact}")
+            logging.info(f"{'*' * 20} Model Trainer Pipeline completed successfully {'*' * 20}/n")
             return model_trainer_artifact
 
 

@@ -20,6 +20,8 @@ PREPROCESSING_OBJECT_FILE_NAME = "preprocessing.pkl"
 MODEL_FILE_NAME = "model.pkl"
 SCHEMA_FILE_PATH = os.path.join("config", "schema.yaml")
 SCHEMA_DROP_COLS = "drop_columns"
+DATASET_SCHEMA_COLUMNS_KEYS = "columns"
+
 
 
 
@@ -64,3 +66,24 @@ MODEL_TRAINER_TRAINED_MODEL_DIR: str = "trained_model"
 MODEL_TRAINER_TRAINED_MODEL_NAME: str = "model.pkl"
 MODEL_TRAINER_EXPECTED_SCORE: float = 0.6
 MODEL_TRAINER_OVER_FIITING_UNDER_FITTING_THRESHOLD: float = 0.05
+
+
+"""
+Model Evaluation related constant
+"""
+
+MODEL_EVALUATION_FILE_NAME:str = "model_evaluation.yaml"
+MODEL_EVALUATION_FILE_NAME_KEY:str = "model_evaluation_file_name"
+MODEL_EVALUATION_ARTIFACT_DIR: str = "model_evaluation"
+MODEL_EVALUATION_CHANGED_THRESHOLD_SCORE: float = 0.02
+"""
+Model Pusher related constant
+"""
+MODEL_PUSHER_DIR_NAME = "model_pusher"
+MODEL_PUSHER_SAVED_MODEL_DIR = SAVED_MODEL_DIR
+
+
+
+BEST_MODEL_KEY = "best_model"
+HISTORY_KEY = "history"
+MODEL_PATH_KEY = "model_path"
