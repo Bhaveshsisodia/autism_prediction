@@ -1,4 +1,5 @@
 pymongo==4.2.0
+pymongo[srv]
 from-root
 pandas
 certifi

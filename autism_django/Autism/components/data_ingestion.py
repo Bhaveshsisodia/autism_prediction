@@ -8,6 +8,7 @@ from pandas import DataFrame
 from Autism.data_access.autism_data import AutismData
 from Autism.utils.main_utils import read_yaml_file
 from Autism.constant.training_pipeline import SCHEMA_FILE_PATH
+from Autism.constant.database import DATABASE_NAME
 
 
 
@@ -34,7 +35,7 @@ class DataIngestion:
             logging.info("Exporting data from mongodb to feature store")
             autism_data = AutismData()
             print(self.data_ingestion_config.collection_name)
-            dataframe = autism_data.export_collection_as_dataframe(collection_name=self.data_ingestion_config.collection_name)
+            dataframe = autism_data.export_collection_as_dataframe(collection_name=self.data_ingestion_config.collection_name, database_name=DATABASE_NAME)
             print(dataframe)
             feature_store_file_path = self.data_ingestion_config.feature_store_file_path
 
@@ -91,7 +92,7 @@ class DataIngestion:
         try:
             # print(self._schema_config["drop_columns"])
             dataframe = self.export_data_into_feature_store()
-            # print(dataframe.columns)
+            print(dataframe.columns)
             dataframe=dataframe.drop(self._schema_config["drop_columns"],axis=1)
             self.split_data_as_train_test(dataframe=dataframe)
             data_ingestion_artifact= DataIngestionArtifact(trained_file_path=self.data_ingestion_config.training_file_path ,
