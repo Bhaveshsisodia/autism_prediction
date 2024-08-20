@@ -132,7 +132,7 @@ celerybeat.pid
 .env
 .venv
 env/
-autism_env/
+
 venv/
 ENV/
 env.bak/
