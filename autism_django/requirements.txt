@@ -1,5 +1,5 @@
 asttokens @ file:///opt/conda/conda-bld/asttokens_1646925590279/work
--e git+https://github.com/Bhaveshsisodia/autism_prediction.git@b72fede8bc50e8417bea6ddb4f2586a3cadf5f43#egg=Autism_Prediction
+# -e git+https://github.com/Bhaveshsisodia/autism_prediction.git@b72fede8bc50e8417bea6ddb4f2586a3cadf5f43#egg=Autism_Prediction
 backcall @ file:///home/ktietz/src/ci/backcall_1611930011877/work
 certifi==2024.7.4
 colorama @ file:///C:/b/abs_a9ozq0l032/croot/colorama_1672387194846/work
