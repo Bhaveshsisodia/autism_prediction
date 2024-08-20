@@ -17,7 +17,7 @@ class MongoDBClient:
             if MongoDBClient.client is None:
                 mongo_db_url =os.getenv(MONGODB_URL_KEY)
                 print(mongo_db_url)
-                MongoDBClient.client = pymongo.MongoClient(mongo_db_url)
+                MongoDBClient.client = pymongo.MongoClient("mongodb+srv://Bhavesh:Bhavesh123@cluster0.zfyclqm.mongodb.net/")
             self.client = MongoDBClient.client
             self.database = self.client[database_name]
             self.database_name = database_name
