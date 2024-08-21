@@ -1,6 +1,5 @@
 
 echo "BUILD START"
-set -e
 
 python3.12 -m ensurepip --upgrade
 python3.12 -m pip install --upgrade pip
