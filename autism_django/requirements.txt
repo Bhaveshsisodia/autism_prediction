@@ -7,7 +7,7 @@ comm
 debugpy
 decorator
 dill==0.3.8
-Django
+Django==4.2.15
 djangorestframework==3.15.2
 dnspython==2.6.1
 exceptiongroup
