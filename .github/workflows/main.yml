@@ -32,7 +32,7 @@ jobs:
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
-        app-name: autismprediction           # Your Azure Web App name
+        app-name: autismprediction
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-        package: .
+        package: autism_django     
 
