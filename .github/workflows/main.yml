@@ -34,7 +34,7 @@ jobs:
       - name: Apply Migrations
         working-directory: autism_django
         env:
-          DJANGO_SETTINGS_MODULE: autism_django.settings
+          DJANGO_SETTINGS_MODULE: autism_django
         run: python manage.py migrate
 
       - name: Run Tests
