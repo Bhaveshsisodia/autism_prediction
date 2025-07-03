@@ -1,4 +1,4 @@
-name: Autism Django CI
+name: Django + MongoDB CI
 
 on:
   push:
@@ -7,38 +7,47 @@ on:
   workflow_dispatch:
 
 jobs:
-  django-check:
+  django-ci:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout your repository code
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Step 2: Set up Python environment
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
 
+      # Step 3: Install dependencies from requirements.txt
       - name: Install dependencies
         working-directory: autism_django
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      # Step 4: Run Django system check
       - name: Run Django check
         working-directory: autism_django
         env:
           DJANGO_SETTINGS_MODULE: autism_django.settings
+          MONGO_URL: ${{ secrets.MONGO_URL }}
         run: python manage.py check
 
+      # Step 5: Run migrations
       - name: Apply Migrations
         working-directory: autism_django
         env:
-          DJANGO_SETTINGS_MODULE: autism_django
+          DJANGO_SETTINGS_MODULE: autism_django.settings
+          MONGO_URL: ${{ secrets.MONGO_URL }}
         run: python manage.py migrate
 
-      - name: Run Tests
+      # Step 6: Run tests (optional if you have any)
+      - name: Run Django Tests
         working-directory: autism_django
         env:
           DJANGO_SETTINGS_MODULE: autism_django.settings
-        run: python manage.py test || echo "✅ No tests defined"
+          MONGO_URL: ${{ secrets.MONGO_URL }}
+        run: python manage.py test || echo "✅ No tests defined yet"
