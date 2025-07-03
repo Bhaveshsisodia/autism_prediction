@@ -34,5 +34,5 @@ jobs:
       with:
         app-name: autismprediction
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-        package: autism_django     
-
+        package: autism_django
+        scm-do-build-during-deployment: true  # 🛠️ Ensures it builds as Python app
